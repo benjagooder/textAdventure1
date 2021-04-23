@@ -11,6 +11,7 @@ public class Benja {
     private static String head_6;
     private static String eyes;
     private static String lips;
+    private static String currentBeautyScore;
 
     private static String eyesRegular = "    o    o   ";
     private static String eyes_withGlasses = "   '0----0'''";
@@ -42,6 +43,9 @@ public class Benja {
     public static void intro() throws InterruptedException {
         System.out.println("\n\t--------------------------------- EAST ----------------------------------------\n");
 
+        // Character Defaults
+        makeHeroFaceNormal();
+        currentBeautyScore = "F";
     }
 
     // Questions
@@ -52,13 +56,14 @@ public class Benja {
         Thread.sleep(2000);
         System.out.println();
         System.out.println("huh... Well, as I was sayin', yer gonna need some identification... Hows about I take yer picture?");
-        System.out.println("\n\t1 - \"Please do... But from THIS angle\" You flash your taint at him.");
+        System.out.println("\n\t1 - \"Please do...\"");
         System.out.println("\t2 - \"I refuse. And you are a scoundrel.\"");
         int userNumber = Helpers.getNumber();
 
         if (userNumber == 1) {
-            System.out.println("\n\"Oh my stars...\"  You have seduced the sheriff");
+            System.out.println("\n\"Well, well\"");
             System.out.println("*snap* *snap* *snap* *snap*");
+
         } else if (userNumber == 2) {
             System.out.println("*snap*");
             Thread.sleep(500);
@@ -67,8 +72,8 @@ public class Benja {
 
         Thread.sleep(5000);
 
-        makeHeroFaceNormal();
         showIdentificationCard();
+        gradeBeauty();
     }
     public static void wigQuestion() {
         System.out.println("Alright, " + heroName + " and I'm only telling you this because I like you, but you should use some of these props.");
@@ -79,11 +84,14 @@ public class Benja {
 
         if (wigChoice == 1) {
             makeHeroHairy();
+            increaseBeautyScore();
         } else if (wigChoice == 2) {
             makeHeroBald();
         }
 
+        System.out.println("*snap*");
         showIdentificationCard();
+        gradeBeauty();
     }
     public static void glassesQuestion() {
         System.out.println("Alright, " + heroName + " and I'm only telling you this because I like you, but you should use some of these props.");
@@ -94,26 +102,71 @@ public class Benja {
 
         if (glasses == 1) {
             eyes = eyes_withGlasses;
+            increaseBeautyScore();
         } else if (glasses == 2) {
             eyes = eyesRegular;
         }
 
+        System.out.println("*snap*");
         showIdentificationCard();
+        gradeBeauty();
     }
     public static void lipsQuestion() {
         System.out.println("Alright, " + heroName + " and I'm only telling you this because I like you, but you should use some of these props.");
         System.out.println("\"Hows 'bout you make your lips as if they were a duck's bill?\"");
-        System.out.println("\n\t1 - Yes");
+        System.out.println("\n\t1 - Lustfully \"Quack\" at the sherrif while pursing your lips");
         System.out.println("\t2 - No");
         int lipsChoice = Helpers.getNumber();
 
         if (lipsChoice == 1) {
             lips = lips_duckFace;
+            // if user chooses this and all others, then their currentBeautyScore should be maxed out at "S"
+            increaseBeautyScore();
         } else if (lipsChoice == 2) {
             lips = lips_regular;
         }
 
+        System.out.println("*snap*");
         showIdentificationCard();
+        gradeBeauty();
+    }
+
+    // Beauty Score
+    public static void increaseBeautyScore() {
+        if (currentBeautyScore == "F") {
+            currentBeautyScore = "C";
+        } else if (currentBeautyScore == "C") {
+            currentBeautyScore = "B";
+        } else if (currentBeautyScore == "B") {
+            currentBeautyScore = "A";
+        }else if (currentBeautyScore == "A") {
+            currentBeautyScore = "S";
+        }
+    }
+    public static void gradeBeauty() {
+        if (currentBeautyScore == "F") {
+            System.out.println("You look F-O-U-L! I'm kind of into birds.. Wanted ta' make the distinction between you and any of them clear...");
+        }
+
+        if (currentBeautyScore == "C") {
+            System.out.println("Straight average. Probably like only one 'a them common gooses\" The sherrif spits off to the side.");
+        }
+
+        if (currentBeautyScore == "B") {
+            System.out.println("The sherrif's throat goes dry and he sputters a surprised cough");
+            System.out.println("\"Well now.. heh.. Your gonna hafta excuse my dribblings, heh. You're remindin' me 'a the first swan I ever laid with. heh, heh.\"");
+        }
+
+        if (currentBeautyScore == "A") {
+            System.out.println("Sweet m-, m-, m-, mercy...\" Tears well in the man's sun-laden eyes");
+            System.out.println("The sherrif makes whispered squawks in a mounting frenzy...");
+        }
+
+        if(currentBeautyScore == "S") {
+            System.out.println("\"UGHGughsdughunnnnnnnnngggggghhh\"");
+            System.out.println("The sherrif falls faint as a mixture of his different bodily fluids pool around him");
+            System.out.println("All pleasures of the bazaar are now open to you");
+        }
     }
 
     // Appearance Changes
@@ -176,8 +229,8 @@ public class Benja {
         System.out.println("_________________________________________________");
         System.out.println("|------------------------------------------------|");
         System.out.println("|---      ______      ---------------------------|");
-        System.out.println("|---    /       \\    ---------------------------|");
-        System.out.println("|---   '0----0''' |  ---------------------------|");
+        System.out.println("|---    /       \\    --- BEAUTY RATING:    ------|");
+        System.out.println("|---   '0----0''' |  ----     Common Goose  -----|");
         System.out.println("|---     <       /  ---------------------------|");
         System.out.println("|---   =        /  ---------------------------|");
         System.out.println("|---     \\   /  ---------------------------|");
