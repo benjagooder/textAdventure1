@@ -12,6 +12,7 @@ public class Benja {
     private static String eyes;
     private static String lips;
     private static String currentBeautyScore;
+    private static String beautyScoreTitle;
 
     private static String eyesRegular = "    o    o   ";
     private static String eyes_withGlasses = "   '0----0'''";
@@ -45,7 +46,6 @@ public class Benja {
 
         // Character Defaults
         makeHeroFaceNormal();
-        currentBeautyScore = "F";
     }
 
     // Questions
@@ -77,7 +77,7 @@ public class Benja {
     }
     public static void wigQuestion() {
         System.out.println("Alright, " + heroName + " and I'm only telling you this because I like you, but you should use some of these props.");
-        System.out.println("\"Hows 'bout you try on this wig?\"");
+        System.out.println("\"Want to try on this wig?\"");
         System.out.println("\n\t1 - Yes");
         System.out.println("\t2 - No");
         int wigChoice = Helpers.getNumber();
@@ -94,9 +94,8 @@ public class Benja {
         gradeBeauty();
     }
     public static void glassesQuestion() {
-        System.out.println("Alright, " + heroName + " and I'm only telling you this because I like you, but you should use some of these props.");
         System.out.println("\"Want these glasses?\"");
-        System.out.println("\n\t1 Yes");
+        System.out.println("\n\t1 - Yes");
         System.out.println("\t2 - No");
         int glasses = Helpers.getNumber();
 
@@ -112,9 +111,8 @@ public class Benja {
         gradeBeauty();
     }
     public static void lipsQuestion() {
-        System.out.println("Alright, " + heroName + " and I'm only telling you this because I like you, but you should use some of these props.");
         System.out.println("\"Hows 'bout you make your lips as if they were a duck's bill?\"");
-        System.out.println("\n\t1 - Lustfully \"Quack\" at the sherrif while pursing your lips");
+        System.out.println("\n\t1 - Lustfully \"Quack\" at the Kodak employee while pursing your lips");
         System.out.println("\t2 - No");
         int lipsChoice = Helpers.getNumber();
 
@@ -135,12 +133,16 @@ public class Benja {
     public static void increaseBeautyScore() {
         if (currentBeautyScore == "F") {
             currentBeautyScore = "C";
+            beautyScoreTitle = "Common Goose";
         } else if (currentBeautyScore == "C") {
             currentBeautyScore = "B";
+            beautyScoreTitle = "Banged Swan";
         } else if (currentBeautyScore == "B") {
             currentBeautyScore = "A";
-        }else if (currentBeautyScore == "A") {
+            beautyScoreTitle = "Avian Model";
+        } else if (currentBeautyScore == "A") {
             currentBeautyScore = "S";
+            beautyScoreTitle = "Supreme";
         }
     }
     public static void gradeBeauty() {
@@ -149,22 +151,22 @@ public class Benja {
         }
 
         if (currentBeautyScore == "C") {
-            System.out.println("Straight average. Probably like only one 'a them common gooses\" The sherrif spits off to the side.");
+            System.out.println("Straight average. Probably like only one 'a them common gooses\" The Kodak employee spits off to the side.");
         }
 
         if (currentBeautyScore == "B") {
-            System.out.println("The sherrif's throat goes dry and he sputters a surprised cough");
+            System.out.println("The Kodak employee's throat goes dry and he sputters a surprised cough");
             System.out.println("\"Well now.. heh.. Your gonna hafta excuse my dribblings, heh. You're remindin' me 'a the first swan I ever laid with. heh, heh.\"");
         }
 
         if (currentBeautyScore == "A") {
             System.out.println("Sweet m-, m-, m-, mercy...\" Tears well in the man's sun-laden eyes");
-            System.out.println("The sherrif makes whispered squawks in a mounting frenzy...");
+            System.out.println("The Kodak employee makes whispered squawks in a mounting frenzy...");
         }
 
         if(currentBeautyScore == "S") {
             System.out.println("\"UGHGughsdughunnnnnnnnngggggghhh\"");
-            System.out.println("The sherrif falls faint as a mixture of his different bodily fluids pool around him");
+            System.out.println("The Kodak employee falls faint as a mixture of his different bodily fluids pool around him");
             System.out.println("All pleasures of the bazaar are now open to you");
         }
     }
@@ -174,6 +176,8 @@ public class Benja {
         makeHeroBald();
         eyes = eyesRegular;
         lips = lips_regular;
+        currentBeautyScore = "F";
+        beautyScoreTitle = "Foul nonfowl";
     }
     public static void makeHeroBald() {
         head_1 = antiWig_1;
@@ -197,14 +201,14 @@ public class Benja {
         System.out.println("_________________________________________________");
         System.out.println("|------------------------------------------------|");
         System.out.println("|---" + head_1 + "---------------------------|");
-        System.out.println("|---" + head_2 + "---------------------------|");
-        System.out.println("|---" + eyes + head_3 + "---------------------------|");
+        System.out.println("|---" + head_2 + "--- BEAUTY RATING:    -----|");
+        System.out.println("|---" + eyes + head_3 + "---     " + beautyScoreTitle + "  -----|");
         System.out.println("|---     <      " + head_4 +"---------------------------|");
         System.out.println("|---" + lips + "" + head_5 + "---------------------------|");
         System.out.println("|---     \\   /" + head_6 + "---------------------------|");
         System.out.println("|---      | |         ---------------------------|");
         System.out.println("|------------------------------------------------|");
-        System.out.println("|------ " + heroName + " ---------------------------|");
+        System.out.println("|------ " + heroName + " -------------------------------|");
         System.out.println("|------------------------------------------------|");
         System.out.println("--------------------------------------------------");
     }
@@ -213,8 +217,8 @@ public class Benja {
         System.out.println("_________________________________________________");
         System.out.println("|------------------------------------------------|");
         System.out.println("|---     #######      ---------------------------|");
-        System.out.println("|---   ## #### ###    ---------------------------|");
-        System.out.println("|---    o    o   " + hair_3 + "---------------------------|");
+        System.out.println("|---   ## #### ###    --- BEAUTY RATING:    -----|");
+        System.out.println("|---    o    o   ###  ---     " + beautyScoreTitle + "  -----|");
         System.out.println("|---     <       ###  ---------------------------|");
         System.out.println("|---   =======   ###  ---------------------------|");
         System.out.println("|---     \\   /``````  ---------------------------|");
@@ -229,14 +233,14 @@ public class Benja {
         System.out.println("_________________________________________________");
         System.out.println("|------------------------------------------------|");
         System.out.println("|---      ______      ---------------------------|");
-        System.out.println("|---    /       \\    --- BEAUTY RATING:    ------|");
-        System.out.println("|---   '0----0''' |  ----     Common Goose  -----|");
-        System.out.println("|---     <       /  ---------------------------|");
-        System.out.println("|---   =        /  ---------------------------|");
-        System.out.println("|---     \\   /  ---------------------------|");
-        System.out.println("|---      | |         ---------------------------|");
+        System.out.println("|---    /       \\    --- BEAUTY RATING:    -----|");
+        System.out.println("|---   '0----0''' |   ----     Common Goose -----|");
+        System.out.println("|---     <       /    ---------------------------|");
+        System.out.println("|---   =        /     ---------------------------|");
+        System.out.println("|---     \\   /       --- SECURITY LEVEL:   -----|");
+        System.out.println("|---      | |         ---       Low         -----|");
         System.out.println("|------------------------------------------------|");
-        System.out.println("|------ " + heroName + " ----------------|");
+        System.out.println("|------ " + heroName + " --------------------|");
         System.out.println("|------------------------------------------------|");
         System.out.println("--------------------------------------------------");
     }
