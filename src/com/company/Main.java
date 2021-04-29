@@ -2,15 +2,15 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         menu();
     }
 
-    public static void menu() {
-        System.out.println("Choose your adventure");
+    public static void menu() throws InterruptedException {
+        System.out.println("Choose your vendor");
         System.out.println("\n\t1 - Spencer");
         System.out.println("\t2 - Matt");
-        System.out.println("\t3 - Benja");
+        System.out.println("\t3 - Kodak employee");
         int flag = Helpers.getNumber();
 
         if (flag == 1) {
